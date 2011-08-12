@@ -2,12 +2,10 @@ Ext.regApplication({
     name: 'App',
     launch: function() {
         var items = [],
-            fieldCfg,
-            placeHolder;
+            fieldCfg;
             
         fieldCfg = {
             xtype: 'textfield',
-            placeHolder: placeHolder,
             listeners: {
                 focus: function (field) {
                     var form = field.up('form');
