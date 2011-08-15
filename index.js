@@ -1,5 +1,6 @@
 Ext.regApplication({
     name: 'App',
+    lastYOffset: 0,
     launch: function() {
         var items = [],
             fieldCfg;
@@ -8,13 +9,19 @@ Ext.regApplication({
             xtype: 'textfield',
             listeners: {
                 focus: function (field) {
-                    var form = field.up('form');
+                    var form = field.up('form'),
+                        yOffset = field.el.getOffsetsTo(form.scrollEl)[1];
                     
-                    form.scroller.scrollTo({
-                        x: 0,
-                        y: field.el.getOffsetsTo(form.scrollEl)[1]
-                    });
-                }
+                    if (yOffset > this.lastYOffset) {
+                        form.scroller.scrollTo({
+                            x: 0,
+                            y: yOffset
+                        });
+                    }
+                    
+                    this.lastYOffset = yOffset;
+                },
+                scope: this
             }
         };
         
