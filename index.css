@@ -1,0 +1,12 @@
+.x-form > .x-panel-body {
+    padding: 18px;
+}
+
+.x-floating.x-panel, .x-floating.x-carousel {
+    padding: 0px;
+    -webkit-border-radius: 0em;
+    border-radius: 0em;
+    -webkit-box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+}
