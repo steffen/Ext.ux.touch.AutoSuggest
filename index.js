@@ -25,7 +25,7 @@ Ext.regApplication({
                     
                     this.lastYOffset = yOffset;
                     
-                    panel = new Ext.Panel({
+                    field.panel = new Ext.Panel({
                         floating: true,
                         width: window.innerWidth - 18 * 2 - 2,
                         height: 200,
@@ -46,9 +46,9 @@ Ext.regApplication({
                         }
                     });
                     
-                    // Ext.defer(function () {
-                        panel.showBy(field, false, false, false);
-                    // }, 500);
+                    Ext.defer(function () {
+                        field.panel.showBy(field, false, false, false, 0);
+                    }, 50);
                 },
                 keyup: function (field) {
                     // this.panel = new Ext.Panel({
@@ -60,10 +60,10 @@ Ext.regApplication({
                     // 
                     // this.panel.showBy(field, false, false, false);
                 },
-                blur: function () {
-                    // if (this.panel) {
-                    //     this.panel.destroy();
-                    // }
+                blur: function (field) {
+                    if (field.panel) {
+                        field.panel.destroy();
+                    }
                     
                 },
                 // keyup: function () {
